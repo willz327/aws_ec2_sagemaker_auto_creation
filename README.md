@@ -42,7 +42,7 @@ aws configure
 
 ### 1. EC2 Auto Creation (`ec2-auto-creation.py`)
 
-Automatically creates G5 series EC2 instances with retry logic and SNS notifications.
+Automatically creates g5 or any other EC2 family instances with retry logic and SNS notifications.
 
 #### Features
 - Automated EC2 instance creation with configurable retry logic
