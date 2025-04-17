@@ -11,8 +11,8 @@ Ensure you have Python installed on your system. The scripts are compatible with
 Clone the repository and install the required packages:
 ```bash
 # Clone the repository
-git clone [repository-url]
-cd [repository-name]
+git clone https://github.com/willz327/aws_ec2_sagemaker_auto_creation.git
+cd aws_ec2_sagemaker_auto_creation.git
 
 # Install dependencies
 pip install -r requirements.txt
@@ -40,7 +40,7 @@ aws configure
 
 ## Scripts
 
-### 1. EC2 Auto Creation (`g5/ec2-auto-create.py`)
+### 1. EC2 Auto Creation (`ec2-auto-creation.py`)
 
 Automatically creates G5 series EC2 instances with retry logic and SNS notifications.
 
@@ -54,22 +54,22 @@ Automatically creates G5 series EC2 instances with retry logic and SNS notificat
 #### Usage
 ```bash
 # Basic usage with default retry interval (10 seconds)
-python ec2-auto-create.py -t g5.12xlarge -c 2
+python ec2-auto-creation.py -t g5.12xlarge -c 2
 
 # Custom retry interval of 15 seconds and max retry of 20
-python ec2-auto-create.py -t g5.12xlarge -c 2 -i 15 -m 20
+python ec2-auto-creation.py -t g5.12xlarge -c 2 -i 15 -m 20
 
 # Minimal configuration example
-python ec2-auto-create.py --instance-type t2.micro --count 1
+python ec2-auto-creation.py --instance-type t2.micro --count 1
 ```
 
 #### Arguments
 - `-t, --instance-type`: EC2 instance type (e.g., g5.12xlarge)
 - `-c, --count`: Number of instances to create (default: 1)
 - `-i, --retry-interval`: Retry interval in seconds (default: 10)
-- `-m, --max-retry`: Number of max retry times (default: 10)
+- `-r, --max-retry`: Number of max retry times (default: 10)
 
-### 2. SageMaker Endpoint Auto Creation (`g5/sagemaker-auto-create.py`)
+### 2. SageMaker Endpoint Auto Creation (`sagemaker-auto-creation.py`)
 
 Automates the creation of SageMaker endpoints with retry logic and SNS notifications.
 
@@ -83,10 +83,10 @@ Automates the creation of SageMaker endpoints with retry logic and SNS notificat
 #### Usage
 ```bash
 # Basic usage
-python sagemaker-auto-create.py -m my-model -t ml.m5.large
+python sagemaker-auto-creation.py -m my-model -t ml.m5.large
 
 # With custom retry settings
-python sagemaker-auto-create.py --model-name my-model --instance-type ml.m5.large --retry-interval 15 --max-retries 20
+python sagemaker-auto-creation.py --model-name my-model --instance-type ml.m5.large --retry-interval 15 --max-retries 20
 ```
 
 #### Arguments
