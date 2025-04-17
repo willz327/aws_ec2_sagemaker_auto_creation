@@ -12,7 +12,7 @@ Clone the repository and install the required packages:
 ```bash
 # Clone the repository
 git clone https://github.com/willz327/aws_ec2_sagemaker_auto_creation.git
-cd aws_ec2_sagemaker_auto_creation.git
+cd aws_ec2_sagemaker_auto_creation
 
 # Install dependencies
 pip install -r requirements.txt
